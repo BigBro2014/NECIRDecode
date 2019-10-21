@@ -39,6 +39,7 @@ class NECIRDecode
     void init();
     void stateMachine();
     uint32_t getNext();
+    void clear();
 
     private:
 

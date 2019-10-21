@@ -149,8 +149,13 @@ uint32_t NECIRDecode::getNext()
     size_t i;
     uint32_t ret;
 
+    //irTimer.pause();
+
     if(len == 0)
+    {
+        //irTimer.resume();
         return 0;
+    }
 
     ret = received[0];
 
@@ -158,5 +163,15 @@ uint32_t NECIRDecode::getNext()
         received[i - 1] = received[i];
     len--;
 
+    //irTimer.resume();
+
     return ret;
+}
+
+
+void NECIRDecode::clear()
+{
+    //irTimer.pause();
+    len = 0;
+    //irTimer.resume();
 }
